@@ -1,0 +1,10 @@
+<!-- column.component.html -->
+<form [formGroup]="columnForm" (ngSubmit)="submitForm()">
+  <label>Nombre de la categoría</label>
+  <input type="text" formControlName="name" />
+
+  <label>Color</label>
+  <input type="color" formControlName="color" />
+
+  <button type="submit" [disabled]="columnForm.invalid">Crear columna</button>
+</form>

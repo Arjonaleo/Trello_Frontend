@@ -1,0 +1,16 @@
+<!-- group.component.html -->
+<form [formGroup]="groupForm" (ngSubmit)="submitForm()">
+  <label>Nombre del grupo</label>
+  <input type="text" formControlName="name" />
+  <div *ngIf="groupForm.get('name')?.touched && groupForm.get('name')?.invalid">
+    <small>Campo requerido y mínimo 3 caracteres</small>
+  </div>
+
+  <label>Descripción</label>
+  <textarea formControlName="description"></textarea>
+  <div *ngIf="groupForm.get('description')?.touched && groupForm.get('description')?.invalid">
+    <small>Requerido y máximo 100 caracteres</small>
+  </div>
+
+  <button type="submit" [disabled]="groupForm.invalid">Crear grupo</button>
+</form>

@@ -1,0 +1,22 @@
+<!-- task-card.component.html -->
+<form [formGroup]="taskForm" (ngSubmit)="submitForm()">
+  <label>Título</label>
+  <input type="text" formControlName="title" />
+
+  <label>Descripción</label>
+  <textarea formControlName="description"></textarea>
+
+  <label>Asignado a:</label>
+  <input type="text" formControlName="assignedTo" />
+
+  <label>Estado</label>
+  <select formControlName="status">
+    <option value="">Selecciona</option>
+    <option value="no_iniciada">Sin empezar</option>
+    <option value="en_progreso">En progreso</option>
+    <option value="terminada">Terminada</option>
+    <option value="aprobada">Aprobada</option>
+  </select>
+
+  <button type="submit" [disabled]="taskForm.invalid">Guardar tarea</button>
+</form>

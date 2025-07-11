@@ -1,0 +1,16 @@
+<!-- board.component.html -->
+<form [formGroup]="boardForm" (ngSubmit)="submitForm()">
+  <label>Título del proyecto</label>
+  <input type="text" formControlName="title" />
+  <div *ngIf="boardForm.get('title')?.touched && boardForm.get('title')?.invalid">
+    <small>Título obligatorio, mínimo 3 letras</small>
+  </div>
+
+  <label>Objetivo del proyecto</label>
+  <textarea formControlName="goal"></textarea>
+  <div *ngIf="boardForm.get('goal')?.errors?.['maxlength']">
+    <small>Máximo 150 caracteres</small>
+  </div>
+
+  <button type="submit" [disabled]="boardForm.invalid">Crear proyecto</button>
+</form>
