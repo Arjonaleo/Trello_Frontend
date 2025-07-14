@@ -5,7 +5,7 @@ import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/fo
 @Component({
   selector: 'app-column',
   templateUrl: './column.component.html',
-  styleUrls: ['./column.component.scss']  // Añade el archivo SCSS si existe
+  styleUrls: ['./column.component.scss']  // Asegúrate de que este archivo exista
 })
 export class ColumnComponent implements OnInit {
   columnForm!: FormGroup;
@@ -20,7 +20,7 @@ export class ColumnComponent implements OnInit {
     });
   }
 
-  // Getter para acceder rápido a los controles en el template
+  // Getter para facilitar acceso en el template
   get f(): { [key: string]: AbstractControl } {
     return this.columnForm.controls;
   }

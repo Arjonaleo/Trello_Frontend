@@ -1,10 +1,10 @@
-// task-card.component.ts
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-task-card',
-  templateUrl: './task-card.component.html'
+  templateUrl: './task-card.component.html',
+  styleUrls: ['./task-card.component.scss']  // opcional, agrega si tienes estilos para este componente
 })
 export class TaskCardComponent implements OnInit {
   taskForm!: FormGroup;

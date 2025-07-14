@@ -1,15 +1,14 @@
-// group.component.ts
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
 
 @Component({
   selector: 'app-group',
   templateUrl: './group.component.html',
-  styleUrls: ['./group.component.scss']  // Agrega estilos si tienes o planeas
+  styleUrls: ['./group.component.scss']  // Asegúrate de que este archivo exista
 })
 export class GroupComponent implements OnInit {
   groupForm!: FormGroup;
-  submitted = false;  // Para controlar el estado de submit y mostrar errores
+  submitted = false;
 
   constructor(private fb: FormBuilder) {}
 
@@ -20,7 +19,7 @@ export class GroupComponent implements OnInit {
     });
   }
 
-  // Acceso rápido a controles para validaciones en la plantilla
+  // Acceso directo a los controles del formulario
   get f(): { [key: string]: AbstractControl } {
     return this.groupForm.controls;
   }
@@ -34,6 +33,6 @@ export class GroupComponent implements OnInit {
     }
 
     console.log('Formulario válido:', this.groupForm.value);
-    // Aquí iría la lógica para enviar datos, llamar a un servicio, etc.
+    // Aquí podrías llamar a un servicio o emitir un evento
   }
 }

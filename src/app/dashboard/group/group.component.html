@@ -1,17 +1,17 @@
-<!-- group.component.html -->
+<!-- src/app/dashboard/group/group.component.html -->
 <form [formGroup]="groupForm" (ngSubmit)="submitForm()">
   <label for="name">Nombre del grupo</label>
   <input id="name" type="text" formControlName="name" />
-  <div *ngIf="submitted && f.name.invalid">
-    <small *ngIf="f.name.errors?.['required']">El nombre es obligatorio.</small>
-    <small *ngIf="f.name.errors?.['minlength']">Mínimo 3 caracteres.</small>
+  <div *ngIf="submitted && f['name'].invalid">
+    <small *ngIf="f['name'].errors?.['required']">El nombre es obligatorio.</small>
+    <small *ngIf="f['name'].errors?.['minlength']">Mínimo 3 caracteres.</small>
   </div>
 
   <label for="description">Descripción</label>
   <textarea id="description" formControlName="description"></textarea>
-  <div *ngIf="submitted && f.description.invalid">
-    <small *ngIf="f.description.errors?.['required']">La descripción es obligatoria.</small>
-    <small *ngIf="f.description.errors?.['maxlength']">Máximo 100 caracteres.</small>
+  <div *ngIf="submitted && f['description'].invalid">
+    <small *ngIf="f['description'].errors?.['required']">La descripción es obligatoria.</small>
+    <small *ngIf="f['description'].errors?.['maxlength']">Máximo 100 caracteres.</small>
   </div>
 
   <button type="submit" [disabled]="groupForm.invalid">Crear grupo</button>
