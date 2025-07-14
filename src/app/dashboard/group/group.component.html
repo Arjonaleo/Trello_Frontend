@@ -1,15 +1,17 @@
 <!-- group.component.html -->
 <form [formGroup]="groupForm" (ngSubmit)="submitForm()">
-  <label>Nombre del grupo</label>
-  <input type="text" formControlName="name" />
-  <div *ngIf="groupForm.get('name')?.touched && groupForm.get('name')?.invalid">
-    <small>Campo requerido y mínimo 3 caracteres</small>
+  <label for="name">Nombre del grupo</label>
+  <input id="name" type="text" formControlName="name" />
+  <div *ngIf="submitted && f.name.invalid">
+    <small *ngIf="f.name.errors?.['required']">El nombre es obligatorio.</small>
+    <small *ngIf="f.name.errors?.['minlength']">Mínimo 3 caracteres.</small>
   </div>
 
-  <label>Descripción</label>
-  <textarea formControlName="description"></textarea>
-  <div *ngIf="groupForm.get('description')?.touched && groupForm.get('description')?.invalid">
-    <small>Requerido y máximo 100 caracteres</small>
+  <label for="description">Descripción</label>
+  <textarea id="description" formControlName="description"></textarea>
+  <div *ngIf="submitted && f.description.invalid">
+    <small *ngIf="f.description.errors?.['required']">La descripción es obligatoria.</small>
+    <small *ngIf="f.description.errors?.['maxlength']">Máximo 100 caracteres.</small>
   </div>
 
   <button type="submit" [disabled]="groupForm.invalid">Crear grupo</button>

@@ -2,9 +2,16 @@
 <form [formGroup]="columnForm" (ngSubmit)="submitForm()">
   <label>Nombre de la categoría</label>
   <input type="text" formControlName="name" />
+  <div class="error" *ngIf="submitted && f.name.invalid">
+    <small *ngIf="f.name.errors?.['required']">El nombre es obligatorio.</small>
+    <small *ngIf="f.name.errors?.['minlength']">Mínimo 2 caracteres.</small>
+  </div>
 
   <label>Color</label>
   <input type="color" formControlName="color" />
+  <div class="error" *ngIf="submitted && f.color.invalid">
+    <small>El color es obligatorio.</small>
+  </div>
 
   <button type="submit" [disabled]="columnForm.invalid">Crear columna</button>
 </form>

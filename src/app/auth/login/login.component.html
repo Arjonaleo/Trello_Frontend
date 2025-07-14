@@ -39,6 +39,11 @@
         Entrar
       </button>
 
+      <!-- Mensaje de error general -->
+      <div class="error-message" *ngIf="errorMessage">
+        <small>{{ errorMessage }}</small>
+      </div>
+
       <!-- Enlace a registro -->
       <a routerLink="/auth/register" class="register-link">¿No tienes cuenta? Regístrate</a>
     </form>

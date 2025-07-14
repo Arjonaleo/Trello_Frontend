@@ -1,6 +1,5 @@
 import { Routes } from '@angular/router';
-
-// import { AuthGuard } from './guards/auth.guard'; // Si tienes guard, descomenta
+import { AuthGuard } from './auth/auth.guard'; // Importa tu guard desde auth
 
 export const routes: Routes = [
   { path: '', redirectTo: 'auth/login', pathMatch: 'full' },
@@ -13,8 +12,9 @@ export const routes: Routes = [
   {
     path: 'dashboard',
     loadChildren: () => import('./dashboard/dashboard-module').then(m => m.DashboardModule),
-    // canActivate: [AuthGuard], // Descomenta si tienes guard para proteger esta ruta
+    canActivate: [AuthGuard], // Protege dashboard para usuarios autenticados
   },
 
+  // Cualquier otra ruta redirige a login
   { path: '**', redirectTo: 'auth/login' }
 ];

@@ -71,6 +71,11 @@
         </div>
       </div>
 
+      <!-- Error general de registro -->
+      <div class="error" *ngIf="errorMessage">
+        <small>{{ errorMessage }}</small>
+      </div>
+
       <button type="submit" [disabled]="registerForm.invalid">Registrar</button>
       <a routerLink="/auth/login" class="login-link">¿Ya tienes cuenta? Inicia sesión</a>
     </form>

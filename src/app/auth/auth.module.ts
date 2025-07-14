@@ -1,7 +1,9 @@
+// src/app/auth/auth.module.ts
+
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router'; // Recomendado si usas routerLink en templates
+import { RouterModule } from '@angular/router';
 
 import { AuthRoutingModule } from './auth-routing.module';
 
@@ -16,7 +18,7 @@ import { RegisterComponent } from './register/register.component';
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    RouterModule,       // ← necesario para routerLink
+    RouterModule,
     AuthRoutingModule
   ]
 })
